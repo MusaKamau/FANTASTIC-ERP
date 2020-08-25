@@ -1,6 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const workRouter = require('./routes/workRoutes');
+const userRouter = require('./routes/userRoutes');
+
 const app = express();
 
 // Middleware
@@ -12,5 +15,9 @@ app.use((req, res, next) => {
   console.log('Hello from the middleware 👋 ');
   next();
 });
+
+// ROUTES
+app.use('/api/v1/work', workRouter);
+app.use('/api/v1/users', userRouter);
 
 module.exports = app;

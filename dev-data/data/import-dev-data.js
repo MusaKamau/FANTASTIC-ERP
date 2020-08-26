@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const Work = require('../../models/workModel');
 const User = require('../../models/userModel');
 
-dotenv.config({ path: '../../config.env' });
+dotenv.config({ path: './config.env' });
 const DB = process.env.DATABASE_LOCAL;
 
 mongoose

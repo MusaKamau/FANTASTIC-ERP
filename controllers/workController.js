@@ -4,17 +4,44 @@ const Work = require('../models/workModel');
 exports.getAllWork = async (req, res) => {
   try {
     // BUILD QUERY
+    // 1) Filtering
     const queryObj = { ...req.query };
     const excludeFields = ['page', 'sort', 'limit', 'fields'];
     excludeFields.forEach((el) => delete queryObj[el]);
 
-    const query = Work.find(queryObj);
+    // 1B) Advanced filtering
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
-    // const works = await Work.find()
-    //   .where('bids')
-    //   .equals(2)
-    //   .where('budget')
-    //   .equals(350);
+    let query = Work.find(JSON.parse(queryStr));
+
+    // 2) Sorting
+    if (req.query.sort) {
+      const sortBy = req.query.sort.split(',').join(' ');
+      query = query.sort(sortBy);
+    } else {
+      query = query.sort('-datePosted');
+    }
+
+    // 3) Field limiting
+    if (req.query.fields) {
+      const fields = req.query.fields.split(',').join(' ');
+      query = query.select(fields);
+    } else {
+      query = query.select('-__v');
+    }
+
+    // 4) Pagination
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || 100;
+    const skip = (page - 1) * limit;
+
+    query = query.skip(skip).limit(limit);
+
+    if (req.query.page) {
+      const numWork = await Work.countDocuments();
+      if (skip >= numWork) throw new Error('This page does not exists');
+    }
 
     // EXECUTE QUERY
     const works = await query;

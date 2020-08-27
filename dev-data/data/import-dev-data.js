@@ -1,10 +1,10 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Work = require('../../models/workModel');
+const Job = require('../../models/jobModel');
 const User = require('../../models/userModel');
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: '../../config.env' });
 const DB = process.env.DATABASE_LOCAL;
 
 mongoose
@@ -17,13 +17,13 @@ mongoose
   .then(() => console.log('DB, connection successfully'));
 
 // Read the file contents
-const work = JSON.parse(fs.readFileSync(`${__dirname}/work.json`, 'utf-8'));
+const job = JSON.parse(fs.readFileSync(`${__dirname}/jobs.json`, 'utf-8'));
 const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
 
 // Import data into the database
 const importData = async () => {
   try {
-    await Work.create(work);
+    await Job.create(job);
     console.log('Data successfully loaded');
     await User.create(users, { validateBeforeSave: false });
     // console.log('Data successfully imported');
@@ -36,7 +36,7 @@ const importData = async () => {
 //delete data from db
 const deleteData = async () => {
   try {
-    await Work.deleteMany();
+    await Job.deleteMany();
     await User.deleteMany();
     console.log('Data successfully deleted');
   } catch (err) {

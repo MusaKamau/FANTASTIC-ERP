@@ -1,0 +1,60 @@
+[{
+        "name": "Article writer for rust articles",
+        "budget": 500,
+        "bids": 4,
+        "summary": "Need the best article writers to write rust articles",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "location": "Europe",
+        "skills": ["Article writing", "content writing", "Blog posts"]
+    },
+
+    {
+        "name": "In search for education content writer",
+        "budget": 350,
+        "bids": 2,
+        "summary": "Our company is in search of top notch education content writers",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "location": "Usa",
+        "skills": ["Article writing", "content writing", "Blog posts"]
+    }, {
+        "name": "In search for blog writers",
+        "budget": 10,
+        "bids": 2,
+        "summary": "Our company is in search of top notch blog writers",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "location": "Kenya",
+        "skills": ["Article writing", "content writing", "Blog posts"]
+    }, {
+        "name": "In search for Vedio content reviews",
+        "budget": 450,
+        "bids": 2,
+        "summary": "Our company is in search of top notch vedio content reviews",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "location": "Europe",
+        "skills": ["Article writing", "content writing", "Content review"]
+    }, {
+        "name": "In search for news paper article writers",
+        "budget": 250,
+        "bids": 2,
+        "summary": "Our company is in search of the best news paper article writerss",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "location": "Kenya",
+        "skills": ["Article writing", "content writing", "Blog posts"]
+    }, {
+        "name": "In search for art analyst",
+        "budget": 10,
+        "bids": 2,
+        "summary": "Our company is in search of the best art analyst",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "location": "Kenya",
+        "skills": ["Article writing", "content writing", "Blog posts"]
+    }, {
+        "name": "Lyric song writer",
+        "budget": 10,
+        "bids": 2,
+        "summary": "We are looking for a lryric song writer",
+        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "location": "Kenya",
+        "skills": ["Article writing", "content writing", "Blog posts"]
+    }
+]

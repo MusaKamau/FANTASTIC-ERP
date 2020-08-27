@@ -1,7 +1,7 @@
-const Work = require('../models/workModel');
+const Job = require('../models/jobModel');
 
 // Get all Job postings available in the database
-exports.getAllWork = async (req, res) => {
+exports.getAllJobs = async (req, res) => {
   try {
     // BUILD QUERY
     // 1) Filtering
@@ -13,7 +13,7 @@ exports.getAllWork = async (req, res) => {
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
-    let query = Work.find(JSON.parse(queryStr));
+    let query = Job.find(JSON.parse(queryStr));
 
     // 2) Sorting
     if (req.query.sort) {
@@ -39,19 +39,19 @@ exports.getAllWork = async (req, res) => {
     query = query.skip(skip).limit(limit);
 
     if (req.query.page) {
-      const numWork = await Work.countDocuments();
-      if (skip >= numWork) throw new Error('This page does not exists');
+      const numJob = await Job.countDocuments();
+      if (skip >= numJob) throw new Error('This page does not exists');
     }
 
     // EXECUTE QUERY
-    const works = await query;
+    const jobs = await query;
 
     // SEND RESPONSE
     res.status(200).json({
       status: 'Success',
-      results: works.length,
+      results: Jobs.length,
       data: {
-        works,
+        jobs,
       },
     });
   } catch (err) {
@@ -63,14 +63,14 @@ exports.getAllWork = async (req, res) => {
 };
 
 // Get a single job bsed on it's ID from the database
-exports.getWork = async (req, res) => {
+exports.getJob = async (req, res) => {
   try {
-    const singleWork = await Work.findById(req.params.id);
+    const singleJob = await Job.findById(req.params.id);
 
     res.status(200).json({
       status: 'success',
       data: {
-        singleWork,
+        singleJob,
       },
     });
   } catch (err) {
@@ -82,14 +82,14 @@ exports.getWork = async (req, res) => {
 };
 
 //Create a new job posting in the database
-exports.createWork = async (req, res) => {
+exports.createJob = async (req, res) => {
   try {
-    const newWork = await Work.create(req.body);
+    const newJob = await Job.create(req.body);
 
     res.status(201).json({
       status: 'success',
       data: {
-        work: newWork,
+        Job: newJob,
       },
     });
   } catch (err) {
@@ -101,9 +101,9 @@ exports.createWork = async (req, res) => {
 };
 
 // Update a single Job based on its ID
-exports.updateWork = async (req, res) => {
+exports.updateJob = async (req, res) => {
   try {
-    const singleWork = await Work.findByIdAndUpdate(req.params.id, req.body, {
+    const singleJob = await Job.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
@@ -111,7 +111,7 @@ exports.updateWork = async (req, res) => {
     res.status(200).json({
       status: 'success',
       data: {
-        singleWork,
+        singleJob,
       },
     });
   } catch (err) {
@@ -123,9 +123,9 @@ exports.updateWork = async (req, res) => {
 };
 
 // Delete a job based on its ID from the database
-exports.deleteWork = async (req, res) => {
+exports.deleteJob = async (req, res) => {
   try {
-    await Work.findByIdAndDelete(req.params.id);
+    await Job.findByIdAndDelete(req.params.id);
 
     res.status(204).json({
       status: 'success',

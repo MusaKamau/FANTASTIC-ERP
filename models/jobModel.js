@@ -45,6 +45,10 @@ const jobSchema = new mongoose.Schema(
         type: String,
       },
     ],
+    secretJob: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     toJSON: { virtuals: true },
@@ -56,5 +60,9 @@ jobSchema.virtual('durationDays').get(function () {
   return this.duration / 7;
 });
 
+// QUERY Middleware
+jobSchema.pre('find', function (next) {
+  next();
+});
 const Job = mongoose.model('Job', jobSchema);
 module.exports = Job;

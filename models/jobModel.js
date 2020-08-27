@@ -32,6 +32,13 @@ const jobSchema = new mongoose.Schema(
       default: Date.now(),
       select: false,
     },
+    dueDate: {
+      type: Date,
+      default: Date.now(),
+    },
+    duration: {
+      type: Number,
+    },
     location: String,
     skills: [
       {
@@ -44,6 +51,10 @@ const jobSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+
+jobSchema.virtual('durationDays').get(function () {
+  return this.duration / 7;
+});
 
 const Job = mongoose.model('Job', jobSchema);
 module.exports = Job;

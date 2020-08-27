@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 
-const workRouter = require('./routes/workRoutes');
+const workRouter = require('./routes/jobRoutes');
 const userRouter = require('./routes/userRoutes');
 
 const app = express();

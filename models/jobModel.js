@@ -7,7 +7,6 @@ const jobSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A Job must have a name/title'],
       trim: true,
-      unique: true,
     },
     slug: String,
     budget: {
@@ -60,8 +59,9 @@ jobSchema.virtual('durationDays').get(function () {
   return this.duration / 7;
 });
 
-// QUERY Middleware
-jobSchema.pre('find', function (next) {
+// QUERY Middleware: runs before the save() and create()
+jobSchema.pre('save', function (next) {
+  console.log(this);
   next();
 });
 const Job = mongoose.model('Job', jobSchema);

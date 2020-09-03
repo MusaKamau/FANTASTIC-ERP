@@ -64,5 +64,16 @@ jobSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });
+
+// jobSchema.pre('save', function (next) {
+//   console.log(`Will sav document`);
+//   next();
+// });
+// //Execute after pre has executed
+// jobSchema.post('save', function (doc, next) {
+//   console.log(doc);
+//   next();
+// });
+
 const Job = mongoose.model('Job', jobSchema);
 module.exports = Job;

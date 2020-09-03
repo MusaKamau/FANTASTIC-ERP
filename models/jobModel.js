@@ -75,5 +75,20 @@ jobSchema.pre('save', function (next) {
 //   next();
 // });
 
+// Query middleware
+jobSchema.pre(/^find/, function (next) {
+  this.find({
+    secretJob: { $ne: true },
+  });
+  this.start = Date.now();
+  next();
+});
+
+jobSchema.post(/^find/, function (docs, next) {
+  console.log(`Query took ${Date.now() - this.start} milliseconds`);
+  console.log(docs);
+  next();
+});
+
 const Job = mongoose.model('Job', jobSchema);
 module.exports = Job;

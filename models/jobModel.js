@@ -61,7 +61,7 @@ jobSchema.virtual('durationDays').get(function () {
 
 // QUERY Middleware: runs before the save() and create()
 jobSchema.pre('save', function (next) {
-  this.slug = slugify(this.name, { lowercase: true });
+  this.slug = slugify(this.name, { lower: true });
   next();
 });
 const Job = mongoose.model('Job', jobSchema);

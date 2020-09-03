@@ -85,7 +85,7 @@ jobSchema.pre(/^find/, function (next) {
 });
 
 jobSchema.post(/^find/, function (docs, next) {
-  console.log(`Query took ${Date.now() - this.start} milliseconds`);
+  // console.log(`Query took ${Date.now() - this.start} milliseconds`);
   // console.log(docs);
   next();
 });
@@ -93,7 +93,7 @@ jobSchema.post(/^find/, function (docs, next) {
 // AGGREGATION MIDDLEWARE
 jobSchema.pre('aggregate', function (next) {
   this.pipeline().unshift({ $match: { secretJob: { $ne: true } } });
-  console.log(this);
+  // console.log(this);
   next();
 });
 

@@ -1,5 +1,7 @@
 const Job = require('../models/jobModel');
 const APIFeatures = require('../utils/apiFeatures');
+const catchAsync = require('../utils/catchAsync');
+
 // Get all Job postings available in the database
 exports.getAllJobs = async (req, res) => {
   try {
@@ -47,26 +49,16 @@ exports.getJob = async (req, res) => {
 };
 
 //Create a new job posting in the database
-exports.createJob = async (req, res) => {
-  try {
-    // const newJob = new Job({});
-    // newJob.save();
+exports.createJob = catchAsync(async (req, res, next) => {
+  const newJob = await Job.create(req.body);
 
-    const newJob = await Job.create(req.body);
-
-    res.status(201).json({
-      status: 'success',
-      data: {
-        job: newJob,
-      },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-};
+  res.status(201).json({
+    status: 'success',
+    data: {
+      job: newJob,
+    },
+  });
+});
 
 // Update a single Job based on its ID
 exports.updateJob = async (req, res) => {

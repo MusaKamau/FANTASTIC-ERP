@@ -48,7 +48,6 @@ exports.getJob = async (req, res) => {
 
 //Create a new job posting in the database
 exports.createJob = async (req, res) => {
-  console.log(req.body);
   try {
     // const newJob = new Job({});
     // newJob.save();
@@ -57,10 +56,9 @@ exports.createJob = async (req, res) => {
 
     res.status(201).json({
       status: 'success',
-      data: newJob,
-      // data: {
-      //   job: newJob,
-      // },
+      data: {
+        job: newJob,
+      },
     });
   } catch (err) {
     res.status(400).json({
@@ -73,7 +71,6 @@ exports.createJob = async (req, res) => {
 // Update a single Job based on its ID
 exports.updateJob = async (req, res) => {
   try {
-    console.log(req.body);
     const singleJob = await Job.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,

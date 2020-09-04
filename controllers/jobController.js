@@ -25,16 +25,16 @@ exports.getAllJobs = catchAsync(async (req, res, next) => {
 
 // Get a single job bsed on it's ID from the database
 exports.getJob = catchAsync(async (req, res, next) => {
-  const singleJob = await Job.findById(req.params.id);
+  const job = await Job.findById(req.params.id);
 
-  if (!singleJob) {
+  if (!job) {
     return next(new AppError('No job found with that ID', 404));
   }
 
   res.status(200).json({
     status: 'success',
     data: {
-      singleJob,
+      job,
     },
   });
 });
@@ -53,23 +53,30 @@ exports.createJob = catchAsync(async (req, res, next) => {
 
 // Update a single Job based on its ID
 exports.updateJob = catchAsync(async (req, res, next) => {
-  const singleJob = await Job.findByIdAndUpdate(req.params.id, req.body, {
+  const job = await Job.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
   });
 
+  if (!job) {
+    return next(new AppError('No job found with that ID', 404));
+  }
+
   res.status(200).json({
     status: 'success',
     data: {
-      singleJob,
+      job,
     },
   });
 });
 
 // Delete a job based on its ID from the database
 exports.deleteJob = catchAsync(async (req, res, next) => {
-  await Job.findByIdAndDelete(req.params.id);
+  const job = await Job.findByIdAndDelete(req.params.id);
 
+  if (!job) {
+    return next(new AppError('No job found with that ID', 404));
+  }
   res.status(204).json({
     status: 'success',
     data: null,

@@ -1,9 +1,10 @@
 const Job = require('../models/jobModel');
 const APIFeatures = require('../utils/apiFeatures');
+const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
 // Get all Job postings available in the database
-exports.getAllJobs = catchAsync(async (req, res) => {
+exports.getAllJobs = catchAsync(async (req, res, next) => {
   // EXECUTE QUERY
   const features = new APIFeatures(Job.find(), req.query)
     .filter()
@@ -23,8 +24,12 @@ exports.getAllJobs = catchAsync(async (req, res) => {
 });
 
 // Get a single job bsed on it's ID from the database
-exports.getJob = catchAsync(async (req, res) => {
+exports.getJob = catchAsync(async (req, res, next) => {
   const singleJob = await Job.findById(req.params.id);
+
+  if (!singleJob) {
+    return next(new AppError('No job found with that ID', 404));
+  }
 
   res.status(200).json({
     status: 'success',
@@ -47,7 +52,7 @@ exports.createJob = catchAsync(async (req, res, next) => {
 });
 
 // Update a single Job based on its ID
-exports.updateJob = catchAsync(async (req, res) => {
+exports.updateJob = catchAsync(async (req, res, next) => {
   const singleJob = await Job.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
@@ -62,7 +67,7 @@ exports.updateJob = catchAsync(async (req, res) => {
 });
 
 // Delete a job based on its ID from the database
-exports.deleteJob = catchAsync(async (req, res) => {
+exports.deleteJob = catchAsync(async (req, res, next) => {
   await Job.findByIdAndDelete(req.params.id);
 
   res.status(204).json({

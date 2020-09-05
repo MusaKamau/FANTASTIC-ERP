@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     required: [true, 'please provide your email'],
     unique: true,
     lowercase: true,
-    validate: [validator.isEmail, 'Plese provide a valid email'],
+    validate: [validator.isEmail, 'Please provide a valid email'],
   },
   photo: {
     type: String,
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     default: 'freelancer',
-    enum: ['frelancer', 'client', 'admin', 'staff'],
+    enum: ['freelancer', 'client', 'admin', 'staff'],
   },
   bio: {
     type: String,
@@ -30,8 +30,8 @@ const userSchema = new mongoose.Schema({
   language: [String],
   password: {
     type: String,
-    required: [true, 'Plese provide a password'],
-    minlenght: 8,
+    required: [true, 'Please provide a password'],
+    minLength: 8,
     select: false,
   },
   passwordConfirm: {
@@ -46,7 +46,7 @@ const userSchema = new mongoose.Schema({
     },
   },
   passwordChangeAt: Date,
-  paswordResetToken: String,
+  passwordResetToken: String,
   PasswordResetExpires: Date,
   active: {
     type: Boolean,

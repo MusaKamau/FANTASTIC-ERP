@@ -71,6 +71,12 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   // 3) Check if user still exists
 
+  if (!freshUser) {
+    return next(
+      new AppError('The user belonging to the token no longer exists.', 401)
+    );
+  }
+
   // 4) Check if user changed password after the token ws issues
   next();
 });

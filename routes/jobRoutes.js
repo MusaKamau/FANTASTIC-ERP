@@ -14,6 +14,10 @@ router
   .route('/:id')
   .get(jobController.getJob)
   .patch(jobController.updateJob)
-  .delete(jobController.deleteJob);
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    jobController.deleteJob
+  );
 
 module.exports = router;

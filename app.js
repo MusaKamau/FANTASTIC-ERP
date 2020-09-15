@@ -15,7 +15,7 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 app.set('view engine', 'pug');
-app.set('views', path.jobRouter(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 // GLOBAL Middleware
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -53,6 +53,10 @@ app.use(
 );
 
 // ROUTES
+app.get('/', (req, res) => {
+  res.status(200).render('base');
+});
+
 app.use('/api/v1/jobs', jobRouter);
 app.use('/api/v1/users', userRouter);
 

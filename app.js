@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const path = require('path');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -13,7 +14,12 @@ const userRouter = require('./routes/userRoutes');
 
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', path.jobRouter(__dirname, 'views'));
 // GLOBAL Middleware
+// Serving static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 //  Set Security HTTP headers
 app.use(helmet());
 
@@ -45,9 +51,6 @@ app.use(
     whitelist: ['budget', 'skills'],
   })
 );
-
-// Serving static files
-app.use(express.static(`${__dirname}/public`));
 
 // ROUTES
 app.use('/api/v1/jobs', jobRouter);

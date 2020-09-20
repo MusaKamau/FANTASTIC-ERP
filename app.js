@@ -11,6 +11,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const jobRouter = require('./routes/jobRoutes');
 const userRouter = require('./routes/userRoutes');
+const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -53,10 +54,7 @@ app.use(
 );
 
 // ROUTES
-app.get('/', (req, res) => {
-  res.status(200).render('base');
-});
-
+app.use('/', viewRouter);
 app.use('/api/v1/jobs', jobRouter);
 app.use('/api/v1/users', userRouter);
 

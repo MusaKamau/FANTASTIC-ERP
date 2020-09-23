@@ -1,3 +1,11 @@
 extends base
 block content
-  h1 This is the job overview page
+  main.main 
+    .card-container
+      each job in jobs
+        .card 
+          .card__header
+            h3.heading-tertiary
+              span= job.name
+          .card__details
+            h4.car__sub-heading Fantastic tuttors

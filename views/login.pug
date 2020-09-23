@@ -1,14 +1,18 @@
 extends base
 block content
-  main.main
-    .login-form
-      h2.heading-secondary.ma-bt-lg Log into Your Account
-      form.form.form--login
-        .form__group
-          label.form__label(for='email') Email address
-          input#email.form__input(type='email', placeholder='you@example.com', required)
-        .form__group.ma-bt-md
-          label.form__label(for='password') password
-          input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
-        .form__group
-          button.btn.btn--green Log In
+  .center
+    .title
+      h3 Login Into Your Account
+      form.post
+        .txt_field
+          label Email
+          input#email.text_area(type='email' placeholder='you@example.com')
+        .txt_field
+          label Password
+          input#password.text_area(type='password' placeholder='••••••••')
+        .pass 
+          a(href='#'): h4 Forgot password?
+        input.btn(type='submit' value='login')
+        .signup__link
+          h4 Do not have an account?
+            a(href='#') Sign Up

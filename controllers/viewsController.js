@@ -23,7 +23,9 @@ exports.jobDetail = (req, res) => {
 }
 
 exports.getLoginForm = (req, res) => {
-  res.status(200).render('login');
+  res.status(200).render('login', {
+    title: 'login'
+  });
 }
 
 exports.getSignupForm = (req, res) => {

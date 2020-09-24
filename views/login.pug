@@ -3,12 +3,12 @@ block content
   .center
     .title
       h3 Login Into Your Account
-      form.post
+      form.form
         .txt_field
-          label Email
+          label.form__label(for='email') Email
           input#email.text_area(type='email' placeholder='you@example.com')
         .txt_field
-          label Password
+          label.form__label(for='password') Password
           input#password.text_area(type='password' placeholder='••••••••')
         .pass 
           a(href='#'): h4 Forgot password?

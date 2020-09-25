@@ -20,7 +20,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 // GLOBAL Middleware
 // Serving static files
-app.use(express.static(path.join(__dirname, 'public2')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //  Set Security HTTP headers
 app.use(helmet());

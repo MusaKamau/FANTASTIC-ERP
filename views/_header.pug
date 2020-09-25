@@ -2,14 +2,22 @@ nav
   .logo 
     h3 Fantastic Tutors
   ul.nav__links
-    li
-      a(href="#") Home
-    li
-      a(href="#") About
-    li
-      a(href='/login') Login
-    li
-      a(href='/signup') signup
+    if user
+      li
+        a(href="/overview") Home
+      li
+        a(href='#') 
+          img.nav__user-img(src=`/images/users/${user.photo}` alt=`Photo of ${user.photo}`)
+          span= user.name.split(' ')[0]
+      l1
+        a(href='#') Logout
+    else
+      li
+        a(href="#") About
+      li
+        a(href='/login') Login
+      li
+        a(href='/signup') signup
   .burger
     .line1
     .line2

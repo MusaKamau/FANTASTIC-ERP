@@ -1,6 +1,6 @@
 // hide alert
 export const hideAlert = () => {
-  const el = document.querySelecor('.alert');
+  const el = document.querySelector('.alert');
   if(el){
     el.parentElement.removeChild(el);
   }
@@ -8,6 +8,8 @@ export const hideAlert = () => {
 
 // type is 'success' or 'error'
 export const showAlert = (type, msg) => {
+  hideAlert();
   const markup = `<div class="alert alert--${type}">${msg}</div>`;
-  document.querySelecor('body').insertAdjacentHTML('afterbegin', markup);
+  document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
+  window.setTimeout(hideAlert, 4000);
 };

@@ -3,7 +3,7 @@ block content
   .center
     .title
       h3 Login Into Your Account
-      form.form
+      form.form.form__login
         .txt_field
           label.form__label(for='email') Email
           input#email.text_area(type='email' placeholder='you@example.com')
@@ -11,8 +11,8 @@ block content
           label.form__label(for='password') Password
           input#password.text_area(type='password' placeholder='••••••••')
         .pass 
-          a(href='#'): h4 Forgot password?
+          a(href='/forgotPassword'): h4 Forgot password?
         input.btn(type='submit' value='login')
         .signup__link
           h4 Do not have an account?
-            a(href='#') Sign Up
+            a(href='/signup') Sign Up

@@ -49,7 +49,12 @@ exports.signup = catchAsync(async (req, res, next) => {
   });
 
   // Send thr tokne here
-  createSendToken(newUser, 201, res);
+  res.status(201).json({
+    status: 'success',
+    data: {
+      newUser
+    }
+  })
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -240,4 +245,4 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 
   // 4) Log user in, send jwt
   createSendToken(user, 200, res);
-});
+})

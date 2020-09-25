@@ -3,10 +3,10 @@ block content
   .center
     .title
       h3 Sign Up for your New Account
-      form.post
+      form.form.form__signup
         .txt_field
           label Full Names 
-          input#fullname.text_area(type='text' placeholder='full names')
+          input#name.text_area(type='text' placeholder='full names')
         .txt_field
           label Email 
           input#email.text_area(type='email' placeholder='you@example.com')
@@ -19,4 +19,4 @@ block content
         input.btn(type='submit' value='Sign Up')
         .signup__link
           h4 Already have an account? 
-            a(href='#') Log In
+            a(href='/login') Log In

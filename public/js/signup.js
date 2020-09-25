@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {showAlert} from './alerts'
 
 export const signup = async(name, email, password, passwordConfirm) => {
   try{
@@ -14,12 +15,12 @@ export const signup = async(name, email, password, passwordConfirm) => {
     });
 
     if(res.data.status === 'success') {
-      alert('Account created successfully');
+      showAlert('success','Account created successfully');
       window.setTimeout(() => {
         location.assign('/login');
       }, 1000);
     }
   } catch (err) {
-    alert(err.response.data.message);
+    showAlert('error', err.response.data.message);
   }
 }

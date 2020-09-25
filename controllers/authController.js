@@ -110,34 +110,37 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   // GRANT ACCESS TO THE PROTECTED ROUTE
   req.user = freshUser;
-  next();
+  return next();
 });
 
 
 // Only for rendered pages and there will be no errors
-exports.isLoggedIn = catchAsync(async (req, res, next) => {
+exports.isLoggedIn = async (req, res, next) => {
   if(req.cookies.jwt) {
-    // 1) Verification token
-    const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
+    try{
+      // 1) Verification token
+      const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
 
-    // 2) Check if user still exists
-    const freshUser = await User.findById(decoded.id);
+      // 2) Check if user still exists
+      const freshUser = await User.findById(decoded.id);
 
-    if (!freshUser) {
+      if (!freshUser) {
+        return next();
+      }
+
+      // 3) Check if user changed password after the token ws issues
+      if (freshUser.changedPasswordsAfter(decoded.iat)) {
+        return next();
+      }
+      //There is a logged in user
+      res.locals.user = freshUser;
       return next();
+    }catch (err) {
+      return next()
     }
-
-    // 3) Check if user changed password after the token ws issues
-    if (freshUser.changedPasswordsAfter(decoded.iat)) {
-      return next();
-    }
-
-    //There is a logged in user
-    res.locals.user = freshUser;
-    next();
   }
   next();
-});
+};
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {

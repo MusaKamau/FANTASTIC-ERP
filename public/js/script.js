@@ -1,4 +1,4 @@
-const navSlide = () => {
+export const navSlide = () => {
   const burger = document.querySelector('.burger');
   const nav = document.querySelector('.nav__links');
   const navLinks = document.querySelectorAll('.nav__links li');
@@ -23,9 +23,3 @@ const navSlide = () => {
 
 
 }
-
-const app = () => {
-  navSlide();
-}
-
-app();

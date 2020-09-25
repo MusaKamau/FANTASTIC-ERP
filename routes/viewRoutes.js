@@ -9,5 +9,6 @@ router.get('/overview',authController.protect,  viewsController.getOverview)
 router.get('/job', authController.protect, viewsController.jobDetail)
 router.get('/login', viewsController.getLoginForm)
 router.get('/signup', viewsController.getSignupForm)
+router.get('/forgotPassword', viewsController.getForgotPasswordForm)
 
 module.exports = router

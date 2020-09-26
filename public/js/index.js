@@ -3,12 +3,14 @@ import '@babel/polyfill';
 import {login, logout}from './login';
 import {signup} from './signup';
 import {navSlide} from './script'
+import {forgotPassword} from './forgotPassword'
 
 
 // Dom Elements
 const loginForm = document.querySelector('.form__login');
 const signupForm = document.querySelector('.form__signup');
 const logOutBtn = document.querySelector('.logout__btn');
+const forgotPasswordForm = document.querySelector('.form__forgotPassword');
 
 
 // Delegation
@@ -37,4 +39,13 @@ navSlide()
 
 if(logOutBtn){
   logOutBtn.addEventListener('click',logout);
+}
+
+
+if(forgotPasswordForm){
+  forgotPasswordForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    forgotPassword(email);
+  })
 }

@@ -5,12 +5,12 @@ nav
     if user
       li
         a(href="/overview") Home
+      l1
+        a.logout__btn Logout
       li
         a(href='#') 
           img.nav__user-img(src=`/images/users/${user.photo}` alt=`Photo of ${user.photo}`)
           span= user.name.split(' ')[0]
-      l1
-        a(href='#') Logout
     else
       li
         a(href="#") About

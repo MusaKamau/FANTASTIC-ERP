@@ -10,7 +10,8 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #5d4954;
+  /* background-color: #5d4954; */
+  background-color: #262626;
 }
 
 .logo {
@@ -58,6 +59,10 @@ nav {
 
 }
 
+.logout__btn{
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
@@ -68,7 +73,8 @@ nav {
     right: 0px;
     height: 92vh;
     top: 8vh;
-    background-color: #5d4954;
+    /* background-color: #5d4954; */
+    background-color: #262626;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -216,7 +222,7 @@ label {
   background-color: #eb4d4b;
 }
 
-/* *,
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -308,7 +314,9 @@ section {
 
 @supports (background-blend-mode: multiply) {
   .hero {
-    background: url(../images/img5.jpg), radial-gradient(#444, #111);
+    /* background: url(../images/img5.jpg), radial-gradient(#444, #111); */
+    background:  radial-gradient(#444, #111);
+    height: auto;
     background-blend-mode: multiply;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -354,7 +362,7 @@ section {
   background-color: #3b3838;
 }
 
-.footer__item {
+/* .footer__item {
   display: block;
   position: relative;
   text-align: center;
@@ -602,4 +610,4 @@ section {
     margin-right: 0;
     margin-bottom: 1.2rem;
   }
-} */
+}  */

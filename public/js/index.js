@@ -1,6 +1,6 @@
 
 import '@babel/polyfill';
-import {login} from './login';
+import {login, logout}from './login';
 import {signup} from './signup';
 import {navSlide} from './script'
 
@@ -8,6 +8,7 @@ import {navSlide} from './script'
 // Dom Elements
 const loginForm = document.querySelector('.form__login');
 const signupForm = document.querySelector('.form__signup');
+const logOutBtn = document.querySelector('.logout__btn');
 
 
 // Delegation
@@ -33,3 +34,7 @@ if(signupForm){
 
 
 navSlide()
+
+if(logOutBtn){
+  logOutBtn.addEventListener('click',logout);
+}

@@ -51,3 +51,7 @@ exports.getForgotPasswordForm = (req, res) => {
 exports.getAccountPage = (req, res) => {
   res.status(200).render('account');
 }
+
+exports.getResetPaswordForm = (req, res) => {
+  res.status(200).render('resetPassword');
+}

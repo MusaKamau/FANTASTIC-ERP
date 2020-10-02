@@ -4,6 +4,7 @@ import {login, logout}from './login';
 import {signup} from './signup';
 import {navSlide} from './script'
 import {forgotPassword} from './forgotPassword'
+import {updateData} from './updateSettings'
 
 
 // Dom Elements
@@ -11,6 +12,7 @@ const loginForm = document.querySelector('.form__login');
 const signupForm = document.querySelector('.form__signup');
 const logOutBtn = document.querySelector('.logout__btn');
 const forgotPasswordForm = document.querySelector('.form__forgotPassword');
+const updateDataForm = document.querySelector('.form-user-data');
 
 
 // Delegation
@@ -34,6 +36,14 @@ if(signupForm){
   })
 }
 
+if(updateDataForm){
+  updateDataForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    updateData(name, email);
+  });
+}
 
 navSlide()
 

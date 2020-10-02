@@ -3,14 +3,42 @@ const viewsController = require('../controllers/viewsController');
 const authController = require('../controllers/authController');
 const router = express.Router();
 
-router.use(authController.isLoggedIn);
-router.get('/', viewsController.landing);
-router.get('/overview',authController.protect,  viewsController.getOverview)
-router.get('/job', authController.protect, viewsController.jobDetail)
-router.get('/login', viewsController.getLoginForm)
-router.get('/signup', viewsController.getSignupForm)
-router.get('/forgotPassword', viewsController.getForgotPasswordForm)
-router.get('/account', viewsController.getAccountPage);
-router.get('/resetPassword', viewsController.getResetPaswordForm)
+router.get('/',authController.isLoggedIn, viewsController.landing);
+
+router.get('/overview',
+  authController.protect,
+  authController.isLoggedIn,
+  viewsController.getOverview)
+
+router.get('/job',
+  authController.protect,
+  authController.isLoggedIn,
+  viewsController.jobDetail)
+
+router.get('/login',
+  authController.isLoggedIn,
+  viewsController.getLoginForm)
+
+router.get('/signup',
+  authController.isLoggedIn,
+  viewsController.getSignupForm)
+
+router
+  .get('/forgotPassword',
+  authController.isLoggedIn,
+  viewsController.getForgotPasswordForm)
+
+router
+  .get('/account',
+  authController.isLoggedIn,
+  viewsController.getAccountPage);
+
+router
+  .get('/resetPassword',
+  authController.isLoggedIn,
+  authController.protect,
+  viewsController.getResetPaswordForm)
+
+router.post('/submit-user-data', viewsController.updateUserData)
 
 module.exports = router

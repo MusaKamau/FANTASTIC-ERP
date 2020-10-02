@@ -55,3 +55,9 @@ exports.getAccountPage = (req, res) => {
 exports.getResetPaswordForm = (req, res) => {
   res.status(200).render('resetPassword');
 }
+
+
+exports.updateUserData = (req, res, next) => {
+  // res.status(200).render('submit-user-data');
+  console.log('Updating User data', req.body);
+}

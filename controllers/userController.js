@@ -56,8 +56,6 @@ exports.getAllUsers = catchAsync(async (req, res) => {
 });
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  console.log(req.file);
-  console.log(req.body);
   // 1) Create an error if user tries to update password
   if (req.body.password || req.body.confirmPassword) {
     return next(
@@ -69,6 +67,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 
   // 2) Filter out unwanted data
   const filteredBody = filterObj(req.body, 'name', 'email');
+  if(req.file) filteredBody.photo = req.file.filename;
 
   // 3) Update THE USER Document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {

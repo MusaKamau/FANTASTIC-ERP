@@ -39,6 +39,9 @@ router
   authController.protect,
   viewsController.getResetPaswordForm)
 
-router.post('/submit-user-data', viewsController.updateUserData)
+router
+  .post('/submit-user-data',
+   authController.protect,
+  viewsController.updateUserData)
 
 module.exports = router

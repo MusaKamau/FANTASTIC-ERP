@@ -1,3 +1,4 @@
+/*disable-eslint */
 import '@babel/polyfill';
 import { login, logout } from './login';
 import { signup } from './signup';
@@ -12,8 +13,6 @@ const logOutBtn = document.querySelector('.logout__btn');
 const forgotPasswordForm = document.querySelector('.form__forgotPassword');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
-
-
 
 // Delegation
 navSlide();
@@ -38,7 +37,6 @@ if (signupForm) {
   });
 }
 
-
 if (logOutBtn) {
   logOutBtn.addEventListener('click', logout);
 }
@@ -55,10 +53,10 @@ if (forgotPasswordForm) {
 if (userDataForm) {
   userDataForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const form =  new FormData();
-    form.append('name', document.getElementById('name').value)
-    form.append('email',document.getElementById('email').value)
-    form.append('photo',document.getElementById('photo').files[0]);
+    const form = new FormData();
+    form.append('name', document.getElementById('name').value);
+    form.append('email', document.getElementById('email').value);
+    form.append('photo', document.getElementById('photo').files[0]);
     console.log(form);
     updateSettings(form, 'data');
   });
@@ -66,7 +64,7 @@ if (userDataForm) {
 
 // User password change
 if (userPasswordForm)
-  userPasswordForm.addEventListener('submit', async e => {
+  userPasswordForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     document.querySelector('.btn--save-password').textContent = 'Updating...';
 

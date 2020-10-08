@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const pug = require('pug');
 // To install
-const htmlToText = require('html-To-Text');
+const htmlToText = require('html-to-text');
 
 module.exports = class Email {
   constructor(user, url) {
@@ -29,11 +29,14 @@ module.exports = class Email {
   // Send the actual email
   async send(template, subject) {
     // 1 Render HTML based on the pug template
-    const html = pug.renderFile(`${__dirname}../views/emails/${template}.pug`, {
-      fitstName: this.firstName,
-      url: this.url,
-      subject,
-    });
+    const html = pug.renderFile(
+      `${__dirname}/../views/emails/${template}.pug`,
+      {
+        fitstName: this.firstName,
+        url: this.url,
+        subject,
+      }
+    );
 
     // 2 Define email options
     const mailOptions = {
@@ -41,7 +44,7 @@ module.exports = class Email {
       to: this.to,
       subject,
       html,
-      text: htmlToText.formSrtrereing(html),
+      text: htmlToText.fromString(html),
     };
 
     // 3Create a transport and send the email
@@ -50,5 +53,12 @@ module.exports = class Email {
 
   async sendWelcome() {
     await this.send('welcome', 'Welcome to fantastic tutors family');
+  }
+
+  async sendResetPassword() {
+    await this.send(
+      'passwordReset',
+      'Your password reset token valid for only 10 min'
+    );
   }
 };

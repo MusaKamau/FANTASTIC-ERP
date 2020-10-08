@@ -32,7 +32,7 @@ module.exports = class Email {
     const html = pug.renderFile(
       `${__dirname}/../views/emails/${template}.pug`,
       {
-        fitstName: this.firstName,
+        firstName: this.firstName,
         url: this.url,
         subject,
       }

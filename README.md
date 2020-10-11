@@ -9,6 +9,8 @@ We are currently using.
     Node.js, Express and MongoDB
 
 in the Development Stage
+Send  mail using 
+    Mailtrap and SendGrid
 
 ## Contributing
 

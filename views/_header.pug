@@ -1,27 +1,59 @@
-nav
-  .logo 
-    a.link__logo(href='/')
-      h3 Fantastic Tutors
-  ul.nav__links
-    if user
-      li
-        a(href="/overview") Home
-      l1
-        a.logout__btn Logout
-      li
-        a(href='/account') 
-          img.nav__user-img(src=`images/users/${user.photo}` alt=`Photo of ${user.photo}`)
-          span= user.name.split(' ')[0]
-    else
-      
-      li
-        a(href="#") About
-      li
-        a(href='/login') Login
-      li
-        a(href='/signup') signup
+section.hero-landing
+  header 
+    .container
+      .logo 
+        h3
+          a(href='/')
+            span
+            | Fantastic Tutors
+        nav
+          .hamb
+            span.line
+            span.line 
+            span.line
+          ul.nav-list
+            if user
+              li.active
+                a.logout__btn Logout
+              li.active
+                a(href='/account') Account
+            else
+            
+              li.active
+                a(href='#') About
+              li.active
+                a(href='/login') Login 
+              li.active
+                a(href='/signup') Sign Up
+              
+
         
-  .burger
-    .line1
-    .line2
-    .line3
+
+
+//- nav
+//-   .logo 
+//-     a.link__logo(href='/')
+//-       h3 Fantastic Tutors
+//-   ul.nav__links
+//-     if user
+//-       li
+//-         a(href="/overview") Home
+//-       l1
+//-         a.logout__btn Logout
+//-       li
+//-         a(href='/account') 
+//-           img.nav__user-img(src=`images/users/${user.photo}` alt=`Photo of ${user.photo}`)
+//-           span= user.name.split(' ')[0]
+//-     else
+//- 
+//-       li
+//-         a(href="#") About
+//-       li
+//-         a(href='/login') Login
+//-       li
+//-         a(href='/signup') signup
+//- 
+//-   .burger
+//-     .line1
+//-     .line2
+//-     .line3

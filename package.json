@@ -7,7 +7,7 @@
     "start": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-    "sass": "node-sass -w public/scss -o public/dist/css -recursive",
+    "sass": "node-sass -w public/scss/ -o public/css - recursive",
     "build:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
   "repository": {
@@ -36,7 +36,6 @@
     "mongoose": "^5.10.7",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
-    "node-sass": "^4.14.1",
     "nodemailer": "^6.4.13",
     "pug": "^3.0.0",
     "sharp": "^0.26.1",
@@ -58,6 +57,7 @@
     "eslint-plugin-react": "^7.21.3",
     "eslint-plugin-react-hooks": "^4.1.2",
     "node-forge": "^0.10.0",
+    "node-sass": "^4.14.1",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.1.2"
   }

@@ -1,17 +1,5 @@
-// Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap');
-
-//Font variables
-$font-body: Poppins, sans-serif;
-$font-articles: Inter, sans-serif;
-
-// color variables
-$primary-color:#f5b041;
-$footer-color: #2e4053;
-$button-color: #0b5345;
-$outline-color:#f1c40f;
-$footer-text-color: #f0f3f4;
-
+@import 'config';
+@import 'mobile';
 
 *{
   margin: 0;
@@ -21,5 +9,49 @@ $footer-text-color: #f0f3f4;
 
 nav{
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: $primary-color;
   
+  .nav__links{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    
+    li{
+      list-style: none;
+    }
+    
+    a{
+      font {
+        family: $font-body;
+        weight: bold;
+        size: 14px;
+      }
+      text-decoration: none;
+      letter-spacing: 3px;
+      color: $font-color;
+      
+    }
+  }
+  
+}
+
+.logo{
+  color: rgb(226, 221, 221);
+
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  
+  div{
+    width: 25px;
+    height: 3px;
+    background-color: $font-color;
+    margin:5px;
+    @include easeOut;
+  }
 }

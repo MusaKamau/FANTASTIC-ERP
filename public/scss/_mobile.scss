@@ -1,0 +1,11 @@
+//Wide Screen
+@include mediaXL{}
+
+//Desktop & Laptop
+@include mediaLg{}
+
+//Tablets
+@include mediaMd{}
+
+//Mobile 
+@include mediaSm{}

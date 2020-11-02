@@ -5,10 +5,14 @@ const router = express.Router();
 
 router.get('/',authController.isLoggedIn, viewsController.landing);
 
-router.get('/overview',
-  authController.protect,
-  authController.isLoggedIn,
-  viewsController.getOverview)
+router.get('/overview', viewsController.getOverview)
+router.get('/contact', viewsController.getContactPage)
+router.get('/about', viewsController.getAboutPage)
+router.get('/postJob', viewsController.getPostjobPage)
+// router.get('/overview',
+//   authController.protect,
+//   authController.isLoggedIn,
+//   viewsController.getOverview)
 
 router.get('/job',
   authController.protect,

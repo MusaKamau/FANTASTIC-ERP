@@ -13,8 +13,31 @@ block content
       h3.lead My Job Postings
       .grid
         .jobs-section
-          each job in Jobs 
-            .job-continer.grid
+          .job-continer.grid
+            a.single-job(href='#')
+              .job-card
+                .job-title
+                  h3 I am Looking for a content writer who is 
+                  | going to be able to write content for our upcomming website
+                .job-details.grid-3
+                  .price
+                    h3 Fixed Price
+                  .posted-time
+                    h3 Created 5 minutes ago
+                  .status
+                    h3 Completed
+              a.single-job(href='#')
+                .job-card
+                  .job-title
+                    h3 I am Looking for a content writer who is 
+                    | going to be able to write content for our upcomming website
+                  .job-details.grid-3
+                    .price
+                      h3 Fixed Price
+                    .posted-time
+                      h3 Created 5 minutes ago
+                    .status
+                      h3 Pending
               a.single-job(href='#')
                 .job-card
                   .job-title
@@ -27,27 +50,3 @@ block content
                       h3 Created 5 minutes ago
                     .status
                       h3 Completed
-                a.single-job(href='#')
-                  .job-card
-                    .job-title
-                      h3 I am Looking for a content writer who is 
-                      | going to be able to write content for our upcomming website
-                    .job-details.grid-3
-                      .price
-                        h3 Fixed Price
-                      .posted-time
-                        h3 Created 5 minutes ago
-                      .status
-                        h3 Pending
-                a.single-job(href='#')
-                  .job-card
-                    .job-title
-                      h3 I am Looking for a content writer who is 
-                      | going to be able to write content for our upcomming website
-                    .job-details.grid-3
-                      .price
-                        h3 Fixed Price
-                      .posted-time
-                        h3 Created 5 minutes ago
-                      .status
-                        h3 Completed

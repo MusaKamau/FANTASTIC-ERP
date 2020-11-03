@@ -173,6 +173,35 @@ code, pre {
 }
 
 
+/* overview page */
+.overview .grid {
+  grid-template-columns:  55% 45%;
+}
+
+.overview-section-btn {
+  justify-self: flex-end;
+}
+
+.jobs .grid{
+  grid-template-columns:  1fr;
+  justify-content: center;
+}
+
+.jobs-card{
+  background-color: #fff;
+  color: #333;
+  border-radius: 2px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+.shadow {
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.3);
+}
+
+.single-job .job-details{
+  display: flex;
+  justify-content: space-around;
+}
 
 /* Footer */
 .footer{

@@ -1,59 +1,29 @@
-footer.footer 
-  .l-footer 
-    h2 Fantastic Tutors 
-    p an Online platform to help you with you assignments and paper reviews
-    
-    ul.r-footer 
-      li
-        h2 Links 
-        ul.box
-          li
-            a(href='#') About us
-          li
-            a(href='#') Services
-          li
-            a(href='#') Tutors
-      li.Features 
-        h2 Need Help ?
-        ul.box.h-box
-          li
-            a(href='#') Blog
-          li
-            a(href='#') Pricing
-      li
-        h2 Legal
-        ul.box
-          li
-            a(href='#') Privacy Policy
-          li
-            a(href='#') Terms of Use 
-    .b-footer 
-     p © 2020 all rights reserved
-
-//- footer.footer
-//-   .container
-//-     .split
-//-       .footer__item
-//-         p.footer__details Fantastic tutors, we help you with your project work and school assignments
-//-         p.footer__details Countless number of clients have used our platform to get help with their school projects and assignments
-//- 
-//-       .footer__item
-//-         h3.footer__title Contact Us
-//-           .location__info
-//-             p.footer__details
-//-               small Nairobi, Kenya
-//-           .contact__info
-//-             p.footer__details
-//-               small +254701020304
-//-             p.footer__details
-//-               small Our online support is here to help you 24 hours 
-//- 
-//-       .footer__item
-//-         h3.footer__link Links
-//-         ul.footer__list
-//-           li.item__list: a.link(href="#") Home
-//-           li.item__list: a.link(href="#") About Us
-//-           li.item__list: a.link(href="#") Find a tutor
-//-           li.item__list: a.link(href="#") Blog
-//-   .copyright
-//-     p.footer__details All right reserved &copy; Fantastic Tutors 2020
+// footer
+footer.footer.bg-dark.py-5
+  .container.grid.grid-4
+    div
+      h1.sm Fantastic Tutors
+      p Copyright © 2020
+    nav
+      h3 Quick Links
+      ul
+        li
+          a(href="/") Home
+        li
+          a(href="/about") About us
+        li
+          a(href="/contact") contact us
+    div
+      h3 Legal
+      ul
+        li
+          a(href="privacy.html") Privacy Policy
+        li
+          a(href="terms.html") Terms of Use
+    .social
+      a(href="#")
+        i.fab.fa-instagram.fa-2x
+      a(href="#")
+        i.fab.fa-facebook.fa-2x
+      a(href="#")
+        i.fab.fa-twitter.fa-2x

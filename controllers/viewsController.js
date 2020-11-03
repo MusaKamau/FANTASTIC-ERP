@@ -3,16 +3,16 @@ const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
-exports.getOverview = catchAsync( async(req, res, next) => {
-  // Get Job data from collection
-  const jobs = await Job.find();
-  // Build template
-  // Render that temlate using job data
-  res.status(200).render('overview', {
-    title: 'Jobs',
-    jobs
-  })
-})
+// exports.getOverview = catchAsync( async(req, res, next) => {
+//   // Get Job data from collection
+//   const jobs = await Job.find();
+//   // Build template
+//   // Render that temlate using job data
+//   res.status(200).render('overview', {
+//     title: 'Jobs',
+//     jobs
+//   })
+// })
 
 exports.landing =  (req, res) => {
   res.status(200).render('landingPage');
@@ -31,6 +31,31 @@ exports.jobDetail = catchAsync(async(req, res, next) => {
     job
   })
 });
+
+
+exports.getAboutPage = (req, res) => {
+  res.status(200).render('about', {
+    title: 'about us'
+  });
+}
+
+exports.getContactPage = (req, res) => {
+  res.status(200).render('contact', {
+    title: 'contact us'
+  });
+}
+
+exports.getPostjobPage = (req, res) => {
+  res.status(200).render('postJob', {
+    title: 'Post Job'
+  });
+}
+
+exports.getOverview = (req, res) => {
+  res.status(200).render('overview', {
+    title: 'my Jobs'
+  });
+}
 
 exports.getLoginForm = (req, res) => {
   res.status(200).render('login', {

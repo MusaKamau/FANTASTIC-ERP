@@ -1,0 +1,57 @@
+@import 'config';
+@import 'mobile';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: $primary-color;
+  
+  .nav__links{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    
+    li{
+      list-style: none;
+    }
+    
+    a{
+      font {
+        family: $font-body;
+        weight: bold;
+        size: 14px;
+      }
+      text-decoration: none;
+      letter-spacing: 3px;
+      color: $font-color;
+      
+    }
+  }
+  
+}
+
+.logo{
+  color: rgb(226, 221, 221);
+
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  
+  div{
+    width: 25px;
+    height: 3px;
+    background-color: $font-color;
+    margin:5px;
+    @include easeOut;
+  }
+}

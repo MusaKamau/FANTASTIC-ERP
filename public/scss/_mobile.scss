@@ -1,0 +1,41 @@
+//Wide Screen
+@include mediaXl{}
+
+//Desktop & Laptop
+@include mediaLg{}
+
+//Tablets
+@include mediaMd{
+  .nav__links{
+    width: 50%;
+  }
+}
+
+//Mobile 
+@include mediaSm{
+  body {
+    overflow-x: hidden;
+  }
+  
+  .nav__links{
+    position: absolute;
+    right: 0px;
+    height: 90vh;
+    top: 10vh;
+    background-color: $footer-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    transform: translateX(100%);
+    @include easeOut;
+    
+    li {
+      opacity: 0;
+    }
+  }
+  
+  .burger{
+    display: block;
+  }
+}

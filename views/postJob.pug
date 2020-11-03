@@ -1,0 +1,48 @@
+extends base
+block content
+  //- Create a job posting
+  section.job-post
+    .container 
+      .job-post-form 
+        form.form.job-form 
+          .name
+            h2
+              |Enter the Name of your Job Post
+            .form-control
+              input#name(type='text' name='name' required)
+          .category 
+            h3 Job Category
+            p
+              | Let us help you categorize your job, which helps us personalize your job details
+            .selection
+              select
+                option None
+                option Inbound Marketing (e.g. onsite blog posts)
+                option Promotional Blog Post (e.g. product reviews)
+                option Thought Leader (e.g. white papers)
+                option Press Releases
+                option Book Report Writing
+                option Research Paper Writing
+                option Literature Review Writing
+                option Capstone Project Writing
+                option Movie Review Writing
+                option Personal Statement
+                option Lab Report Writing
+                option Case Study Writing
+                option Dissertation Writing
+                option Thesis Writing
+                option Essay Writing
+          .duration
+            h3 Date Due 
+            .form-control
+              input#date-due(type='date')
+          .budget 
+            h3 Your Budget 
+            .form-control
+              input#price(type='text')
+          .description 
+            h3 Job Description 
+            p Tell us more about your job 
+            .form-control
+              textares#textarea(placeholder='Job instructions')
+          .input.btn.btn-primary(type='submit' value='post Job')

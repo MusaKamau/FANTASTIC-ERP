@@ -1,22 +1,43 @@
 extends base
 block content
-  .center
-    .title
-      h3 Sign Up for your New Account
-      form.form.form__signup
-        .txt_field
-          label Full Names 
-          input#name.text_area(type='text' placeholder='full names')
-        .txt_field
-          label Email 
-          input#email.text_area(type='email' placeholder='you@example.com')
-        .text_field
-          label Password 
-          input#password.text_area(type='password' placeholder='••••••••')
-        .text_field
-          label Confirm Password 
-          input#passwordConfirm.text_area(type='password' placeholder='••••••••')
-        input.btn(type='submit' value='Sign Up')
-        .signup__link
-          h4 Already have an account? 
-            a(href='/login') Log In
+  section.showcase.signup
+    .container.grid
+      h2.md Welcome to Fantastic tutors
+      .showcase-form.signup-form.card
+        form.form-group
+          .form-control
+            label(for="fullname") Fullname
+            input#fullname(type="text" name="name" placeholder="name" required="")
+          .form-control
+            label(for="email") Email
+            input#email(type="email" name="email" placeholder="email" required="")
+          .form-control
+            label(for="password") Password
+            input#password(type="password" name="password" placeholder="••••••••" required="")
+          .form-control
+            label(for="passwordConfirm") Confirm Password
+            input#passwordconfirm(type="password" name="passwordConfirm" placeholder="••••••••" required="")
+          input.btn.btn-primary(type="submit" value="Signup")
+          .login__link
+            h4 Already have an account? 
+            a(href="/login") Log In
+  //- .center
+  //-   .title
+  //-     h3 Sign Up for your New Account
+  //-     form.form.form__signup
+  //-       .txt_field
+  //-         label Full Names 
+  //-         input#name.text_area(type='text' placeholder='full names')
+  //-       .txt_field
+  //-         label Email 
+  //-         input#email.text_area(type='email' placeholder='you@example.com')
+  //-       .text_field
+  //-         label Password 
+  //-         input#password.text_area(type='password' placeholder='••••••••')
+  //-       .text_field
+  //-         label Confirm Password 
+  //-         input#passwordConfirm.text_area(type='password' placeholder='••••••••')
+  //-       input.btn(type='submit' value='Sign Up')
+  //-       .signup__link
+  //-         h4 Already have an account? 
+  //-           a(href='/login') Log In

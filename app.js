@@ -7,6 +7,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -55,6 +56,8 @@ app.use(
     whitelist: ['budget', 'skills'],
   })
 );
+
+app.use(compression());
 
 // ROUTES
 app.use('/', viewRouter);

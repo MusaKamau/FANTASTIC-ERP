@@ -1,11 +1,52 @@
 extends base
 block content
-  main.main 
-    .card-container
-      each job in jobs
-        .card 
-          .card__header
-            h3.heading-tertiary
-              span= job.name
-          .card__details
-            h4.car__sub-heading Fantastic tuttors
+  section.overview
+    .container
+      .grid
+        .overview-section
+          h2 Fantastic tuttors
+        .overview-section
+          a(href='/postJob') Post a Job
+          
+  section.jobs 
+    .container
+      h3.lead My Job Postings
+      .grid
+        .jobs-section
+          .job-continer.grid
+            a.single-job(href='#')
+              .job-card
+                .job-title
+                  h3 I am Looking for a content writer who is 
+                  | going to be able to write content for our upcomming website
+                .job-details.grid-3
+                  .price
+                    h3 Fixed Price
+                  .posted-time
+                    h3 Created 5 minutes ago
+                  .status
+                    h3 Completed
+              a.single-job(href='#')
+                .job-card
+                  .job-title
+                    h3 I am Looking for a content writer who is 
+                    | going to be able to write content for our upcomming website
+                  .job-details.grid-3
+                    .price
+                      h3 Fixed Price
+                    .posted-time
+                      h3 Created 5 minutes ago
+                    .status
+                      h3 Pending
+              a.single-job(href='#')
+                .job-card
+                  .job-title
+                    h3 I am Looking for a content writer who is 
+                    | going to be able to write content for our upcomming website
+                  .job-details.grid-3
+                    .price
+                      h3 Fixed Price
+                    .posted-time
+                      h3 Created 5 minutes ago
+                    .status
+                      h3 Completed

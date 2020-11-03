@@ -5,19 +5,19 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
 // multer configs
-/*
-const multerStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/images/users');
-  },
-  filename: (req, file, cb) => {
-    const ext = file.mimetype.split('/')[1];
-    const uniqueSuffix = Date.now() + '-'+ Math.round(Math.random() * 1E6)
-    cb(null, `user-${uniqueSuffix}.${ext}`)
-    // cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
-  },
-});
-*/
+
+// const multerStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'public/images/users');
+//   },
+//   filename: (req, file, cb) => {
+//     const ext = file.mimetype.split('/')[1];
+//     const uniqueSuffix = Date.now() + '-'+ Math.round(Math.random() * 1E6)
+//     cb(null, `user-${uniqueSuffix}.${ext}`)
+//     // cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
+//   },
+// });
+
 
 const multerStorage = multer.memoryStorage();
 

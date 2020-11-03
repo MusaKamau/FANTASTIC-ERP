@@ -1,18 +1,19 @@
 extends base
 block content
-  .center
-    .title
-      h3 Login Into Your Account
-      form.form.form__login
-        .txt_field
-          label.form__label(for='email') Email
-          input#email.text_area(type='email' placeholder='you@example.com')
-        .txt_field
-          label.form__label(for='password') Password
-          input#password.text_area(type='password' placeholder='••••••••')
-        .pass 
-          a(href='/forgotPassword'): h4 Forgot password?
-        input.btn(type='submit' value='login')
-        .signup__link
-          h4 Do not have an account?
+  section.showcase.login
+    .container.grid
+      h2.md Welcome back
+      .showcase-form.login-form.card
+        form.form-group
+          .form-control
+            label(for='email') Email
+            input#email(type='email' name='email' placeholder='you@example.com' required)
+          .form-control
+            label(for='password') Password
+            input#password(type='password' name='password' placeholder='••••••••' required)
+            a(href='/forgotPassword') 
+              h4.my-1 Forgot your password?
+          input.btn.btn-primary(type='submit' value='login')
+          .signup__link
+            h4.my-1  Don't have an account?
             a(href='/signup') Sign Up

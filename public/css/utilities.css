@@ -30,6 +30,10 @@
   border: 1px #fff solid;
 }
 
+.outline {
+  border: 1px #333 solid;
+}
+
 .btn:hover {
   transform: scale(0.98)
 }

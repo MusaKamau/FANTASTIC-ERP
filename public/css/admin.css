@@ -1,0 +1,110 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: orange;
+}
+
+.ccontainer {
+	max-width: 1200px;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-wrap: wrap;
+	margin-top: 150px;
+}
+
+.ccontainer h1 {
+    font-size: 65px;
+    margin-top: 12px;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.ccontainer h1 + p {
+     margin: 0 auto 50px;
+     color:  #343a40;
+     font-weight: 600;
+     letter-spacing: 1px;
+     margin-top: 12px;
+}
+
+.price {
+	flex: 29%;
+	padding: 10px;
+	max-width: 320px;
+	box-sizing: border-box;
+}
+
+.price .table {
+	background: #eeeeeeee;
+	padding: 20px 20px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: -4px 6px 20px 0px rgba(0, 0, 0, 0.75);
+	transition: 0.5s;   
+}
+
+.price .table h2 {
+	font-size: 23px;
+	letter-spacing: 0.1px;
+	font-weight: 500;
+}
+
+.price .table h1 {
+	font-size: 40px;
+	font-weight: 600;
+	letter-spacing: 0.1px;
+}
+
+.price .table h1 span {
+	display: block;
+	font-size: 17px;
+	font-weight: normal;
+	letter-spacing: 0.1px;
+}
+
+.price .table ul {
+	margin: 9px;
+	padding: 0;
+	list-style: none;
+}
+
+.price .table ul li {
+	padding: 10px 0;
+}
+
+.price .table a {
+	text-decoration: none;
+	color: #fff;
+	border: 0px solid #3b4b5a;
+	background: orange;
+	border-radius: 40px; 
+	display: block;
+	padding: 10px 0; 
+	margin: 10px 0;
+	font-size: 17px;
+	transition: 0.5s;
+}
+
+.price .table a:hover {
+	background: #343a40;
+	color: #fff;
+	box-shadow: -4px 6px 20px 0px rgba(0, 0, 0, 0.75);
+	transform: scale(1.04);
+}
+
+@media screen and (max-width: 980px) {
+	.price {
+		flex: 50%;
+	}
+}
+@media screen and (max-width: 700px) {
+	.price {
+		flex: 100%;
+	}
+}

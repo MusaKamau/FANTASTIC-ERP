@@ -2,51 +2,50 @@ extends base
 block content
   section.overview
     .container
-      .grid
+      .grid.my-3
         .overview-section
-          h2 Fantastic tuttors
-        .overview-section
-          a(href='/postJob') Post a Job
+          h2.md Fantastic tuttors
+        .overview-section-btn
+          a.btn(href='/postJob') Post a Job
           
-  section.jobs 
-    .container
+  section.jobs.bg-light
+    .container.jobs-card
       h3.lead My Job Postings
-      .grid
-        .jobs-section
-          .job-continer.grid
-            a.single-job(href='#')
+      .grid.my-3
+        .job-continer.grid
+          a.single-job(href='#').jobs-card.shadow
+            .job-card
+              .job-title
+                h3.text-primary I am Looking for a content writer who is 
+                | going to be able to write content for our upcomming website
+              .job-details.grid-3
+                .price
+                  h3.sm Fixed Price
+                .posted-time
+                  h3.sm Created 5 minutes ago
+                .status
+                  h3.sm Completed
+            a.single-job(href='#').jobs-card.shadow
               .job-card
                 .job-title
-                  h3 I am Looking for a content writer who is 
+                  h3.text-primary I am Looking for a content writer who is 
                   | going to be able to write content for our upcomming website
                 .job-details.grid-3
                   .price
-                    h3 Fixed Price
+                    h3.sm Fixed Price
                   .posted-time
-                    h3 Created 5 minutes ago
+                    h3.sm Created 5 minutes ago
                   .status
-                    h3 Completed
-              a.single-job(href='#')
-                .job-card
-                  .job-title
-                    h3 I am Looking for a content writer who is 
-                    | going to be able to write content for our upcomming website
-                  .job-details.grid-3
-                    .price
-                      h3 Fixed Price
-                    .posted-time
-                      h3 Created 5 minutes ago
-                    .status
-                      h3 Pending
-              a.single-job(href='#')
-                .job-card
-                  .job-title
-                    h3 I am Looking for a content writer who is 
-                    | going to be able to write content for our upcomming website
-                  .job-details.grid-3
-                    .price
-                      h3 Fixed Price
-                    .posted-time
-                      h3 Created 5 minutes ago
-                    .status
-                      h3 Completed
+                    h3.sm Pending
+            a.single-job(href='#').jobs-card.shadow
+              .job-card
+                .job-title
+                  h3.text-primary I am Looking for a content writer who is 
+                  | going to be able to write content for our upcomming website
+                .job-details.grid-3
+                  .price
+                    h3.sm Fixed Price
+                  .posted-time
+                    h3.sm Created 5 minutes ago
+                  .status
+                    h3.sm Completed

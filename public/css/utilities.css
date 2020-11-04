@@ -124,22 +124,31 @@
 /* Alert */
 .alert {
   background-color: var(--light-color);
+  position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 9999;
+  text-align: center;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
   padding: 10px 20px;
   font-weight: bold;
   margin: 15px 0;
 }
 
+
 .alert i{
   margin-right: 10px;
 }
 
-.alert-success{
+.alert-success {
   background-color: var(--success-color) ;
   color: #fff;
 }
 
-.alert-error{background
-  background-color;: var(--error-color) ;
+.alert-error {
+  background-color: var(--error-color) ;
   color: #fff;
 }
 

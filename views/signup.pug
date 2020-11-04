@@ -4,10 +4,10 @@ block content
     .container.grid
       h2.md Welcome to Fantastic tutors
       .showcase-form.signup-form.card
-        form.form-group
+        form.form-group.form__signup
           .form-control
-            label(for="fullname") Fullname
-            input#fullname(type="text" name="name" placeholder="name" required="")
+            label(for="name") Fullname
+            input#name(type="text" name="name" placeholder="name" required="")
           .form-control
             label(for="email") Email
             input#email(type="email" name="email" placeholder="email" required="")
@@ -16,7 +16,7 @@ block content
             input#password(type="password" name="password" placeholder="••••••••" required="")
           .form-control
             label(for="passwordConfirm") Confirm Password
-            input#passwordconfirm(type="password" name="passwordConfirm" placeholder="••••••••" required="")
+            input#passwordConfirm(type="password" name="passwordConfirm" placeholder="••••••••" required="")
           input.btn.btn-primary(type="submit" value="Signup")
           .login__link
             h4 Already have an account? 

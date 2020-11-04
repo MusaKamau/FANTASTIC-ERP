@@ -182,7 +182,8 @@ code, pre {
   justify-self: flex-end;
 }
 
-.jobs .grid{
+.jobs .grid,
+.job-post .grid{
   grid-template-columns:  1fr;
   justify-content: center;
 }
@@ -202,6 +203,24 @@ code, pre {
   display: flex;
   justify-content: space-around;
 }
+
+
+.posting .clarification input{
+  /* visibility: hidden; */
+  /* height: 0; */
+  /* width: 0; */
+}
+
+.posting .clarification label{
+  cursor: pointer;
+}
+
+.posting{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 /* Footer */
 .footer{
@@ -251,6 +270,11 @@ code, pre {
     justify-self: center;
     margin: auto;
     animation: slideInFromBottom 1s ease-in;
+  }
+
+  textarea{
+    padding: 11px;
+    min-height: 20px;
   }
 
   .cli .grid>*:first-child {

@@ -2,17 +2,17 @@ extends base
 block content
   //- Create a job posting
   section.job-post
-    .container 
-      .job-post-form 
-        form.form.job-form 
-          .name
-            h2
-              |Enter the Name of your Job Post
+    .container.p-3
+      form.form.job-form
+        .posting.shadow
+          .name.p-1.shadow
+            h2.sm
+              | What is your topic?
             .form-control
-              input#name(type='text' name='name' required)
-          .category 
-            h3 Job Category
-            p
+              input#jobsname.shadow(type='text' name='name'  size='30' required)
+          .category.p-1.shadow
+            h3.sm Job Category
+            p.sm
               | Let us help you categorize your job, which helps us personalize your job details
             .selection
               select
@@ -32,17 +32,29 @@ block content
                 option Dissertation Writing
                 option Thesis Writing
                 option Essay Writing
-          .duration
-            h3 Date Due 
+          
+          .duration.p-1.shadow
+            h3.sm
+              i.fas.fa-clock.m-1 
+              | Date Due 
             .form-control
               input#date-due(type='date')
-          .budget 
-            h3 Your Budget 
+          .budget.p-1.shadow
+            h3.sm
+              i.fas.fa-dollar-sign.m-1 
+              | Your Budget 
             .form-control
               input#price(type='text')
-          .description 
-            h3 Job Description 
-            p Tell us more about your job 
+          .description.p-1.shadow 
+            h3.sm Job Description 
+            p.lead Tell us more about your job 
             .form-control
-              textares#textarea(placeholder='Job instructions')
-          .input.btn.btn-primary(type='submit' value='post Job')
+              textarea#textarea.shadow(placeholder='Job instructions' rows='4' cols='40')
+            .clarification.p-1
+              h3.sm For further clarification you can attach  your files
+              .form-control.m-1
+                i.fas.fa-paperclip.fa-1x.m-1
+                input.form-upload.py-1(type='file' accept='.doc, .pdf, .docx' id='document' name='document' value='attach document')
+                label.lead.shadow.p-1(for='document') attach document
+          .p-3
+            .input.btn.btn-primary(type='submit' value='post Job') Post Job

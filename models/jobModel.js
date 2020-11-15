@@ -10,21 +10,21 @@ const jobSchema = new mongoose.Schema(
     },
     slug: String,
     budget: {
-      type: Number,
+      type: String,
       required: [true, 'The Job should have a budget'],
     },
-    bids: {
-      type: Number,
-      default: 0,
-    },
-    summary: {
+
+    category: {
       type: String,
-      trim: true,
-      required: [true, 'The Job should have a description'],
+      required: [true, 'a job should be of a specific category'],
     },
     description: {
       type: String,
       trim: true,
+      required: [
+        true,
+        'A Job should have a detailed description / instructions',
+      ],
     },
     datePosted: {
       type: Date,
@@ -33,20 +33,10 @@ const jobSchema = new mongoose.Schema(
     },
     dueDate: {
       type: Date,
-      default: Date.now(),
+      required: [true, 'a due date is required'],
     },
-    duration: {
-      type: Number,
-    },
-    location: String,
-    skills: [
-      {
-        type: String,
-      },
-    ],
-    secretJob: {
-      type: Boolean,
-      default: false,
+    document: {
+      type: String,
     },
   },
   {
@@ -55,9 +45,11 @@ const jobSchema = new mongoose.Schema(
   }
 );
 
-jobSchema.virtual('durationDays').get(function () {
-  return this.duration / 7;
-});
+
+
+// jobSchema.virtual('durationDays').get(function () {
+//   return this.duration / 7;
+// });
 
 // QUERY Middleware: runs before the save() and create()
 jobSchema.pre('save', function (next) {
@@ -65,15 +57,11 @@ jobSchema.pre('save', function (next) {
   next();
 });
 
-// jobSchema.pre('save', function (next) {
-//   console.log(`Will sav document`);
-//   next();
-// });
-// //Execute after pre has executed
-// jobSchema.post('save', function (doc, next) {
-//   console.log(doc);
-//   next();
-// });
+//Execute after pre has executed
+jobSchema.post('save', function (doc, next) {
+  console.log(doc);
+  next();
+});
 
 // Query middleware
 jobSchema.pre(/^find/, function (next) {

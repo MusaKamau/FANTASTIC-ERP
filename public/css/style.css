@@ -292,8 +292,32 @@ code, pre {
 .login__section .grid,
 .signup__section .grid {
   grid-template-columns: 60%;
-
 }
+
+.jobposting__section .grid{
+  grid-template-columns: 80%;
+}
+
+.form__group .budget {
+  width: 230px;
+}
+
+.form__control {
+  border-color: #e6e6eb;
+  border-radius: 5px !important;
+  min-height: 34px;
+  height: auto;
+  padding: 6px 14px;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  line-height:1.42857;
+  background-color: #fff;
+  color: #555;
+  border: 1px solid #ccc;
+}
+
 
 
 /* Footer */
@@ -396,7 +420,8 @@ code, pre {
     background-color: rgba(0, 0, 0, 0.1);
   }
   .login__section .grid,
-  .signup__section .grid {
+  .signup__section .grid,
+  .jobposting__section .grid {
    grid-template-columns: 1fr;
    padding: 0
  }

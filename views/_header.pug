@@ -4,36 +4,20 @@
       a(href='/') Fantastic Tutors
     nav.nav
       ul
-        li
-          a(href='/login') Login
-        li
-          a(href='/signup') Signup
+        if user 
+          li
+            a(href='/overview') overview
+          li
+            a(href='/account') Account
+          li
+            a.nav__el.nav__el-logout Log Out
+        else
+          
+          li
+            a(href='/login') Login
+          li
+            a(href='/signup') Signup
       .burger
         span
         span
         span
-//- nav
-//-   .logo
-//-     h3 Fantastic tutuors
-//-   ul.nav__links
-//-     if user
-//-       li.active
-//-         a.logout__btn Logout
-//-       //- li
-//-       //-   a(href='/account') 
-//-       //-     img.nav__user-img(src=`images/users/${user.photo}` alt=`Photo of ${user.photo}`)
-//-       //-     span= user.name.split(' ')[0]
-//- 
-//-     else 
-//- 
-//-       li
-//-         a(href='#') About
-//-       li
-//-         a(href='/login') Login
-//-       li
-//-         a(href='/signup') Signup
-//- 
-//-   .burger
-//-     .line1
-//-     .line2
-//-     .line3

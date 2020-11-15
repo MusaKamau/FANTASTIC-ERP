@@ -1,60 +1,47 @@
 extends base
 block content
   //- Create a job posting
-  section.job-post
-    .container.p-3
-      form.form.job-form
-        .posting.shadow
-          .name.p-1.shadow
-            h2.sm
-              | What is your topic?
-            .form-control
-              input#jobsname.shadow(type='text' name='name'  size='30' required)
-          .category.p-1.shadow
-            h3.sm Job Category
-            p.sm
-              | Let us help you categorize your job, which helps us personalize your job details
-            .selection
-              select
-                option None
-                option Inbound Marketing (e.g. onsite blog posts)
-                option Promotional Blog Post (e.g. product reviews)
-                option Thought Leader (e.g. white papers)
-                option Press Releases
-                option Book Report Writing
-                option Research Paper Writing
-                option Literature Review Writing
-                option Capstone Project Writing
-                option Movie Review Writing
-                option Personal Statement
-                option Lab Report Writing
-                option Case Study Writing
-                option Dissertation Writing
-                option Thesis Writing
-                option Essay Writing
-          
-          .duration.p-1.shadow
-            h3.sm
-              i.fas.fa-clock.m-1 
-              | Date Due 
-            .form-control
-              input#date-due(type='date')
-          .budget.p-1.shadow
-            h3.sm
-              i.fas.fa-dollar-sign.m-1 
-              | Your Budget 
-            .form-control
-              input#price(type='text')
-          .description.p-1.shadow 
-            h3.sm Job Description 
-            p.lead Tell us more about your job 
-            .form-control
-              textarea#textarea.shadow(placeholder='Job instructions' rows='4' cols='40')
-            .clarification.p-1
-              h3.sm For further clarification you can attach  your files
-              .form-control.m-1
-                i.fas.fa-paperclip.fa-1x.m-1
-                input.form-upload.py-1(type='file' accept='.doc, .pdf, .docx' id='document' name='document' value='attach document')
-                label.sm.shadow.p-1(for='document') attach document
-          .p-3
-            .input.btn.btn-primary(type='submit' value='post Job') Post Job
+  main.main
+      section.jobposting__section
+        .container.grid
+          .my-4.p-2
+            .header__section
+              h2.md.text-center.my-2 Tell us about your Job
+            .user-view__form
+              .card
+                form.form.form-user-data.my-1
+                  .form__group.p-1
+                    p.sm Select your category
+                    select#job_category.form__control.selection(name="job_category" required="")
+                      option(value="") ---------------
+                      option(value="") Accounting
+                      option(value="") creating writing
+                      option(value="") Content writing
+                      option(value="") Literature review
+                      option(value="") Accounting
+                      option(value="") creating writing
+                      option(value="") Content writing
+                      option(value="") Literature review
+                      option(value="") Accounting
+                      option(value="") creating writing
+                      option(value="") Content writing
+                      option(value="") Literature review
+                  .form__group.p-1
+                    p.sm What do you need?
+                    input#title.form__control.title(type="text" required="" name="title")
+                  .form__group.p-1
+                    p.sm Give a brief description about your project here(Min 200 characters)
+                    textarea#description.form__control.description(rows="10" cols="40" maxlength="2000" required="" minlength="200")
+                  .form__group.p-1
+                    .date.m-1
+                      p.sm Date due
+                      input#date_due(type="date" name="date_due")
+                    .budget
+                      p.sm What's your budget
+                      input.form__control.budget(type="text" required="" name="budget")
+                  .form__group.form__document-upload.my-1.p-1
+                    p.sm For further clarification you can attach a document
+                    input#document(type="file" name="document")
+                    label.text-primary.m-1(for="document") Attach a document
+                  .form__group.my-1.p-3
+                    button.btn.btn--small Post Job

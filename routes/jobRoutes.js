@@ -5,10 +5,17 @@ const authController = require('../controllers/authController');
 const router = express.Router();
 
 // router.param('id', jobController.checkID);
+router.route('/').get(authController.protect, jobController.getAllJobs);
+
 router
-  .route('/')
-  .get(authController.protect, jobController.getAllJobs)
-  .post(jobController.createJob);
+  .route('/create')
+  .post(
+    jobController.uploadUserDocument,
+    authController.protect,
+    jobController.createJob
+  );
+
+// router.route('/upload').post(jobController.uploadUserDocument);
 
 router
   .route('/:id')

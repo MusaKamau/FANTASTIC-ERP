@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 
-export const postJob = async (...fields) => {
+export const postJob = async (info) => {
   try {
     const res = await axios({
       method: 'POST',
       url: '/api/v1/jobs/create',
-      data: {fields},
+      data: {
+        info
+      }
     });
 
     if (res.data.status === 'success') {

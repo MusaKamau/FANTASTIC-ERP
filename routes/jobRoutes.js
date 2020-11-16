@@ -11,6 +11,7 @@ router
   .route('/create')
   .post(
     jobController.uploadUserDocument,
+    jobController.saveUserDocument,
     authController.protect,
     jobController.createJob
   );
@@ -23,7 +24,7 @@ router
   .patch(jobController.updateJob)
   .delete(
     authController.protect,
-    authController.restrictTo('admin'),
+    authController.restrictTo('admin', 'freelancer'),
     jobController.deleteJob
   );
 

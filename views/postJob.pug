@@ -32,13 +32,12 @@ block content
                   .form__group.p-1
                     p.sm Give a brief description about your project here(Min 200 characters)
                     textarea#description.form__control.description(rows="10" cols="40" maxlength="2000" required="" minlength="200")
-                  .form__group.p-1
-                    .date.m-1
-                      p.sm Date due
-                      input#date_due.form__control(type="date" name="date_due")
-                    .budget
-                      p.sm What's your budget
-                      input.form__control.budget(type="text" required="" name="budget")
+                  .form__group.date.p-1
+                    p.sm Date due
+                    input#date_due.form__control(type="date" name="date_due")
+                  .form__group.budget.p-1
+                    p.sm What's your budget
+                    input#budget.form__control.budget(type="text" required="" name="budget")
                   .form__group.form__document-upload.my-1.p-1
                     p.sm For further clarification you can attach a document
                     input#document(type="file" name="document")

@@ -38,17 +38,16 @@ const upload = multer({
   fileFilter: multerFilter,
 });
 
-// exports.uploadUserDocument = upload.single('document');
+exports.uploadUserDocument = async(req, res, next) => {
+  await upload.single('document');
+  next();
+}
+
 
 
 //Create a new job posting in the database
 exports.createJob = catchAsync(async (req, res, next) => {
-  if(req.file){
-    const document = upload.single('document');
-  }
-
-  const newJob = await Job.create(req.body, document);
-
+  const newJob = await Job.create(req.body);
   res.status(201).json({
     status: 'success',
     data: {

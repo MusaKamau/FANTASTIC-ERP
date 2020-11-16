@@ -5,6 +5,7 @@ import { signup } from './signup';
 import { navSlide } from './script';
 import { forgotPassword } from './forgotPassword';
 import { updateSettings } from './updateSettings';
+import { postJob } from './postJob';
 
 // Dom Elements
 const loginForm = document.querySelector('.form__login');
@@ -13,6 +14,8 @@ const logOutBtn = document.querySelector('.logout__btn');
 const forgotPasswordForm = document.querySelector('.form__forgotPassword');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
+const jobPostForm = document.querySelector('.form__postJob');
+// const userPostJobForm = document.querySelector('.form__postJob');
 
 // Delegation
 navSlide();
@@ -81,3 +84,26 @@ if (userPasswordForm)
     document.getElementById('password').value = '';
     document.getElementById('password-confirm').value = '';
   });
+
+if (jobPostForm) {
+  jobPostForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    document.querySelector('.btn--post-job').textContent = 'Posting...';
+
+    const jobsName = document.getElementById('jobs-name').value;
+    const jobsCategory = document.getElementById('job-category').value;
+    const dateDue = document.getElementById('date-due').value;
+    const jobsBudget = document.getElementById('jobs-budget').value;
+    const jobsDescription = document.getElementById('job-description').value;
+    const jobsFileAttachment = document.getElementById('document').files;
+    postJob(
+      jobsName,
+      jobsCategory,
+      dateDue,
+      jobsBudget,
+      jobsDescription,
+      jobsDescription,
+      jobsFileAttachment
+    );
+  });
+}

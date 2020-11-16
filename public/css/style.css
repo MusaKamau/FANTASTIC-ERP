@@ -16,9 +16,9 @@
   margin: 0;
 }
 
-/* html {
+html {
   height: 100%;
-} */
+}
 
 body {
   font-family: 'Lato', sans-serif;
@@ -298,7 +298,8 @@ code, pre {
   grid-template-columns: 80%;
 }
 
-.form__group .budget {
+.form__group .budget,
+.form__group .date {
   width: 230px;
 }
 

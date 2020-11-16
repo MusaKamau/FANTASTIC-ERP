@@ -65,7 +65,11 @@ code, pre {
 .navbar {
   background-color: var(--primary-color);
   color: #fff;
-  height: 70px;
+  height: 100px;
+}
+
+.logout__btn{
+  cursor: pointer;
 }
 
 .navbar ul {
@@ -225,6 +229,12 @@ code, pre {
 
 
 /* Account Page */
+.nav__user-img {
+	height: 3.5rem;
+	width: 3.5rem;
+	border-radius: 50%;
+	/* margin-right: 1rem; */
+}
 
 .settings__section .grid {
   grid-template-columns: 1fr;
@@ -290,7 +300,8 @@ code, pre {
 }
 
 .login__section .grid,
-.signup__section .grid {
+.signup__section .grid,
+.forgotPassword__section .grid {
   grid-template-columns: 60%;
 }
 
@@ -298,8 +309,8 @@ code, pre {
   grid-template-columns: 80%;
 }
 
-.form__group .budget,
-.form__group .date {
+.budget,
+.date {
   width: 230px;
 }
 
@@ -398,11 +409,16 @@ code, pre {
     grid-column: 1 ;
     grid-row: 1 ;
   }
+  .jobposting__section .grid{
+    grid-template-columns: 1fr;
+  }
 
   .login__section .grid,
-  .signup__section .grid {
+  .signup__section .grid,
+  .settings__section .grid {
    grid-template-columns: 1fr;
-   padding: 0
+   padding: 0;
+   margin: 0;
   }
 }
 
@@ -422,8 +438,14 @@ code, pre {
   }
   .login__section .grid,
   .signup__section .grid,
-  .jobposting__section .grid {
+  .jobposting__section .grid,
+  .settings__section .grid  {
    grid-template-columns: 1fr;
    padding: 0
+ }
+
+ .settings__section .card{
+   width: 100%;
+   margin: auto;
  }
 }

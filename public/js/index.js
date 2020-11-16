@@ -90,20 +90,13 @@ if (jobPostForm) {
     e.preventDefault();
     document.querySelector('.btn--post-job').textContent = 'Posting...';
 
-    const jobsName = document.getElementById('jobs-name').value;
-    const jobsCategory = document.getElementById('job-category').value;
-    const dateDue = document.getElementById('date-due').value;
-    const jobsBudget = document.getElementById('jobs-budget').value;
-    const jobsDescription = document.getElementById('job-description').value;
-    const jobsFileAttachment = document.getElementById('document').files;
-    postJob(
-      jobsName,
-      jobsCategory,
-      dateDue,
-      jobsBudget,
-      jobsDescription,
-      jobsDescription,
-      jobsFileAttachment
-    );
+    const form = new FormData();
+    form.append('category', document.getElementById('job_category').value)
+    form.append('name', document.getElementById('title').value);
+    form.append('description', document.getElementById('description').value);
+    form.append('dateDue', document.getElementById('date_due').value);
+    form.append('budget', document.getElementById('budget').value);
+    form.append('document', document.getElementById('document').files[0]);
+    postJob(form);
   });
 }

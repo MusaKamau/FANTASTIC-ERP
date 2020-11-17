@@ -11,12 +11,13 @@ block content
              form.form.form-user-data.my-1
                .form__group.p-1
                  label.form__label(for="name") Name
-                 input#name.form__input(type="text" required="" name="name")
+                 input#name.form__input(type="text" required="",      value=`${user.name}`, name="name")
                .form__group.ma-bt-md.p-1
                  label.form__label(for="email") Email address
-                 input#email.form__input(type="email" required="" name="email")
+                 input#email.form__input(type="email" required="",
+                 value=`${user.email}`, name="email")
                .form__group.form__photo-upload.my-1.p-1
-                 img.form__user-photo(src="Profile.png" alt="user photo")
+                 img.form__user-photo(src=`/images/users/${user.photo}` alt="user photo")
                  input#photo.form__upload(type="file" accept="image/*" name="photo")
                  label.text-primary(for="photo") Choose new Photo
                .form__group.right.my-1.p-3

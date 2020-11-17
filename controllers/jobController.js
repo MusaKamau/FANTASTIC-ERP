@@ -1,4 +1,5 @@
 const multer = require('multer');
+const sharp = require('sharp');
 const Job = require('../models/jobModel');
 const APIFeatures = require('../utils/apiFeatures');
 const AppError = require('../utils/appError');
@@ -7,17 +8,17 @@ const catchAsync = require('../utils/catchAsync');
 // multer configs
 
 // muter settings for files
-const multerStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/files/docs');
-  },
-  filename: (req, file, cb) => {
-    const fileName = file.originalname;
-    cb(null, `file-${fileName}`);
-  },
-});
+// const multerStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'public/files/docs');
+//   },
+//   filename: (req, file, cb) => {
+//     const fileName = file.originalname;
+//     cb(null, `file-${fileName}`);
+//   },
+// });
 
-// const multerStorage = multer.memoryStorage();
+const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image') || file.mimetype.startsWith('application')) {
@@ -38,17 +39,25 @@ const upload = multer({
   fileFilter: multerFilter,
 });
 
-// exports.uploadUserDocument = upload.single('document');
+exports.uploadUserDocument = upload.single('document');
+exports.saveUserDocument = catchAsync(async(file,req, res, next) => {
+  // if(!req.file) return next();
+
+  req.body.document = `doc-${Date.now()}.${file.mimetype[0]}`;
+  await sharp(req.files.document[0].buffer)
+    .toFile(`public/files/docs/${req.body.document}`);
+  // next();
+  // req.file.document = req.body.document;
+  // await sharp(req.file.buffer).toFile(`public/files/docs/${req.file.document}`);
+  // req.body.document.push(req.file.document);
+  next();
+});
+
 
 
 //Create a new job posting in the database
 exports.createJob = catchAsync(async (req, res, next) => {
-  if(req.file){
-    const document = upload.single('document');
-  }
-
-  const newJob = await Job.create(req.body, document);
-
+  const newJob = await Job.create(req.body);
   res.status(201).json({
     status: 'success',
     data: {

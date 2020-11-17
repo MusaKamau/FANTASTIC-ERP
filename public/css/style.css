@@ -16,9 +16,9 @@
   margin: 0;
 }
 
-/* html {
+html {
   height: 100%;
-} */
+}
 
 body {
   font-family: 'Lato', sans-serif;
@@ -65,7 +65,11 @@ code, pre {
 .navbar {
   background-color: var(--primary-color);
   color: #fff;
-  height: 70px;
+  height: 100px;
+}
+
+.logout__btn{
+  cursor: pointer;
 }
 
 .navbar ul {
@@ -225,6 +229,12 @@ code, pre {
 
 
 /* Account Page */
+.nav__user-img {
+	height: 3.5rem;
+	width: 3.5rem;
+	border-radius: 50%;
+	/* margin-right: 1rem; */
+}
 
 .settings__section .grid {
   grid-template-columns: 1fr;
@@ -290,10 +300,36 @@ code, pre {
 }
 
 .login__section .grid,
-.signup__section .grid {
+.signup__section .grid,
+.forgotPassword__section .grid {
   grid-template-columns: 60%;
-
 }
+
+.jobposting__section .grid{
+  grid-template-columns: 80%;
+}
+
+.budget,
+.date {
+  width: 230px;
+}
+
+.form__control {
+  border-color: #e6e6eb;
+  border-radius: 5px !important;
+  min-height: 34px;
+  height: auto;
+  padding: 6px 14px;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  line-height:1.42857;
+  background-color: #fff;
+  color: #555;
+  border: 1px solid #ccc;
+}
+
 
 
 /* Footer */
@@ -373,11 +409,16 @@ code, pre {
     grid-column: 1 ;
     grid-row: 1 ;
   }
+  .jobposting__section .grid{
+    grid-template-columns: 1fr;
+  }
 
   .login__section .grid,
-  .signup__section .grid {
+  .signup__section .grid,
+  .settings__section .grid {
    grid-template-columns: 1fr;
-   padding: 0
+   padding: 0;
+   margin: 0;
   }
 }
 
@@ -396,8 +437,15 @@ code, pre {
     background-color: rgba(0, 0, 0, 0.1);
   }
   .login__section .grid,
-  .signup__section .grid {
+  .signup__section .grid,
+  .jobposting__section .grid,
+  .settings__section .grid  {
    grid-template-columns: 1fr;
    padding: 0
+ }
+
+ .settings__section .card{
+   width: 100%;
+   margin: auto;
  }
 }

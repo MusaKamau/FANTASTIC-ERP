@@ -1,0 +1,43 @@
+# This workflow installs dependencies, builds the source code, runs tests, and deploys to GitHub Pages.
+
+name: Node.js CI and Deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]  # Adjust Node.js version if needed.
+
+    steps:
+      # Check out the repository's code
+      - uses: actions/checkout@v2
+
+      # Set up Node.js based on the version matrix
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Install dependencies
+      - run: npm ci
+
+      # Build the project
+      - run: npm run build
+
+      # Run tests (optional)
+      - run: npm test
+
+      # Deploy to GitHub Pages using the build output
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # Replace with your build directory, e.g., `./dist` or `./public`
